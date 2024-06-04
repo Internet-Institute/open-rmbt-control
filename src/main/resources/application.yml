@@ -31,14 +31,14 @@ RMBT_SECRETKEY: RMBT_SECRETKEY
 auth0:
   issuer: https://auth.a2332751-f1b8-4d26-8291-dfaef9094f33.netztest.at/
   apiAudience: https://netztest.at
-origin: https://www.netztest.at
+origin: https://www.testnet2.akostest.net
 app:
   rmbt:
     accuracyDetailLimit: 10000
     accuracyButtonLimit: 2000
     duration: 7
     pings: 10
-    threads: 3
+    threads: 6
     version: 0.1.0 || 0.3.0 || ^1.0.0
     language:
       supportedLanguages:
@@ -52,7 +52,8 @@ app:
         - fr
         - nb
         - cs
-      defaultLanguage: en
+        - sl
+      defaultLanguage: sl
     clientNames:
       - RMBT
       - RMBTjs
@@ -61,6 +62,7 @@ app:
       - HW-PROBE
       - RTR-Netztest
       - RMBTel
+      - AkosTestNet
       -
 application-version:
   host: rtr-api-dev
