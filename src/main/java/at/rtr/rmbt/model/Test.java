@@ -221,6 +221,9 @@ public class Test implements Serializable {
     @Column(name = "public_ip_rdns")
     private String publicIpRdns;
 
+    @Column(name = "cell_location_name")
+    private String cellLocationName;
+
     @Column(name = "public_ip_as_name")
     private String publicIpAsName;
 

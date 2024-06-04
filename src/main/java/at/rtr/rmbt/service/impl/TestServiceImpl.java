@@ -711,7 +711,23 @@ public class TestServiceImpl implements TestService {
         addLong(propertiesList, locale, "client_public_ip_as", test.getPublicIpAsn());
         addString(propertiesList, locale, "client_public_ip_as_name", test.getPublicIpAsName());
         addString(propertiesList, locale, "client_public_ip_rdns", test.getPublicIpRdns());
-        Optional.ofNullable(test.getProvider())
+        // addString(propertiesList, locale, "cell_location_name", test.getCellLocationName());
+        System.out.println("-----------------JC_test_cell_id " + "start");
+                try
+                {
+                    System.out.println("-----------------JC_test_cell_id " + "DbConnection");
+                    addString(propertiesList, locale, "cell_location_name", test.getCellLocationName());
+        
+                }
+                catch (final Exception e)
+                {
+                    System.out.println("-----------------JC_test_cell_id " + String.valueOf(e));
+        }
+     
+     
+     
+     
+                Optional.ofNullable(test.getProvider())
                 .map(Provider::getShortName)
                 .ifPresent(providerShortName -> addString(propertiesList, locale, "provider", providerShortName));
         addString(propertiesList, locale, "client_local_ip", test.getClientIpLocalType());
