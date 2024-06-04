@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 public class NewsMapperImpl implements NewsMapper {
     private static String LANGUAGE_DE = "de";
     private static String LANGUAGE_EN = "en";
+    private static String LANGUAGE_SL = "sl";
 
     @Override
     public NewsResponse newsToNewsResponse(News news) {
@@ -44,7 +45,7 @@ public class NewsMapperImpl implements NewsMapper {
             .uuid(news.getUuid())
             .title(isEn ? news.getTitleEn() : news.getTitleDe())
             .content(isEn ? news.getTextEn() : news.getTextDe())
-            .language(isEn ? LANGUAGE_EN : LANGUAGE_DE)
+            .language(isEn ? LANGUAGE_EN : LANGUAGE_SL)
             .active(news.isActive())
             .android(true)
             .status(news.getStatus())
