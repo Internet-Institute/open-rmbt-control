@@ -864,7 +864,7 @@ public class TestServiceImpl implements TestService {
     }
 
     private void addSettlementType(List<TestResultDetailContainerResponse> propertiesList, Locale locale, Integer settlementType) {
-        if (Objects.nonNull(settlementType)) {
+        if (Objects.nonNull(settlementType) && false) {
             switch (settlementType) {
                 case 1:
                     // No settlement area
