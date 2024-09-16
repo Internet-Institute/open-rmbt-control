@@ -30,6 +30,7 @@ public interface Config {
     String URL_IPV4_CHECK_KEY = "url_ipv4_check";
     String URL_IPV6_CHECK_KEY = "url_ipv6_check";
     String URL_MAP_SERVER_KEY = "url_map_server";
+    String URL_STATISTIC_SERVER_KEY = "url_statistic_server";
     String SYSTEM_UUID_KEY = "system_UUID";
     String GEO_PROVIDER_MANUAL = "manual";
     String GEO_PROVIDER_GEOCODER = "geocoder";
@@ -82,7 +83,8 @@ public interface Config {
         "url_map_server",
         "host_map_server",
         "ssl_map_server",
-        "port_map_server"
+        "port_map_server",
+        "url_statistic_server"
     );
     List<ServerType> SERVER_TEST_SERVER_TYPES = List.of(ServerType.RMBT);
     List<ServerType> SERVER_HTTP_TEST_SERVER_TYPES = List.of(ServerType.RMBT, ServerType.RMBThttp);
@@ -92,5 +94,6 @@ public interface Config {
     List<String> SIGNAL_RESULT_STATUSES = List.of(TestStatus.SIGNAL_STARTED.toString(), TestStatus.SIGNAL.toString());
     List<String> TEST_RESULT_DETAIL_STATUSES = List.of(TestStatus.FINISHED.toString());
     List<String> TEST_RESULT_STATUSES = List.of(TestStatus.FINISHED.toString());
+    List<String> TEST_RESULT_STATUSES_INCLUDE_ERROR = List.of(TestStatus.FINISHED.toString(), TestStatus.ERROR.toString());
     Integer SIGNIFICANT_PLACES = 2;
 }

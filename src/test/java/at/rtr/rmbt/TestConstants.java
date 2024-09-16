@@ -153,10 +153,10 @@ public interface TestConstants {
     String DEFAULT_MCC_MNC = "1-05";
     String DEFAULT_COUNTRY_AT = "AT";
     String DEFAULT_COUNTRY_NO = "NO";
-    Integer DEFAULT_LOCATION_ID = 4;
+    Long DEFAULT_LOCATION_ID = 4L;
     Long DEFAULT_LOCATION_ID_LONG = 4L;
-    Integer DEFAULT_AREA_CODE_FIRST = 3;
-    Integer DEFAULT_AREA_CODE_SECOND = 65;
+    Long DEFAULT_AREA_CODE_FIRST = 3L;
+    Long DEFAULT_AREA_CODE_SECOND = 65L;
     Integer DEFAULT_PRIMARY_SCRAMBLING_CODE = 2147483647;
     NetworkGroupName DEFAULT_TECHNOLOGY_FIRST = NetworkGroupName.G2;
     NetworkGroupName DEFAULT_TECHNOLOGY_SECOND = NetworkGroupName.G3;
@@ -293,6 +293,7 @@ public interface TestConstants {
     Integer DEFAULT_TELEPHONY_SIM_COUNT = 2;
     ClientStatus DEFAULT_LAST_CLIENT_STATUS = ClientStatus.SPEEDTEST_END;
     QosStatus DEFAULT_LAST_QOS_STATUS = QosStatus.QOS_END;
+    TestStatus DEFAULT_STATUS_FINISHED = TestStatus.FINISHED;
     Integer DEFAULT_TEST_SUBMISSION_RETRY_COUNT = 22;
     String DEFAULT_TEST_RESULT_DETAIL_SIGNAL_STRENGTH_VALUE = DEFAULT_SIGNAL_STRENGTH_FIRST + " dBm";
     String DEFAULT_TEST_RESULT_DETAIL_SIGNAL_RSRP_VALUE = DEFAULT_LTE_RSRP_FIRST + " dBm";
@@ -409,8 +410,8 @@ public interface TestConstants {
     String DEFAULT_FORMATTED_PING = "58";
     String DEFAULT_FORMATTED_PING_SHORTEST = "58";
     String DEFAULT_HISTORY_RESPONSE_ITEM_LOOP_UUID = "L2458713e-9362-11eb-a8b3-0242ac130003";
-    String DEFAULT_TEST_HISTORY_FINAL_QUERY = "SELECT DISTINCT t.uuid, time, timezone, speed_upload, speed_download, ping_median, lte_rsrp, signal_strength, dual_sim, sim_count, network_type, nt.group_name network_type_group_name, l.loop_uuid loop_uuid, COALESCE(adm.fullname, t.model) model FROM test t LEFT JOIN device_map adm ON adm.codename=t.model LEFT JOIN network_type nt ON t.network_type=nt.uid LEFT JOIN test_loopmode l ON (l.test_uuid = t.uuid) WHERE t.deleted = false AND t.implausible = false AND t.status = 'FINISHED'  AND client_id = 2  AND (COALESCE(adm.fullname, t.model) IN ('DEFAULT_DEVICE'))  AND nt.group_name IN ('2G (GSM)') ORDER BY time DESC  LIMIT 1 OFFSET 2";
-    String DEFAULT_TEST_HISTORY_FINAL_QUERY_CLIENT_SYNCED = "SELECT DISTINCT t.uuid, time, timezone, speed_upload, speed_download, ping_median, lte_rsrp, signal_strength, dual_sim, sim_count, network_type, nt.group_name network_type_group_name, l.loop_uuid loop_uuid, COALESCE(adm.fullname, t.model) model FROM test t LEFT JOIN device_map adm ON adm.codename=t.model LEFT JOIN network_type nt ON t.network_type=nt.uid LEFT JOIN test_loopmode l ON (l.test_uuid = t.uuid) WHERE t.deleted = false AND t.implausible = false AND t.status = 'FINISHED'  AND (t.client_id IN (SELECT 2 UNION SELECT uid FROM client WHERE sync_group_id = 5 ))  AND (COALESCE(adm.fullname, t.model) IN ('DEFAULT_DEVICE'))  AND nt.group_name IN ('2G (GSM)') ORDER BY time DESC  LIMIT 1 OFFSET 2";
+    String DEFAULT_TEST_HISTORY_FINAL_QUERY = "SELECT DISTINCT t.status, t.uuid, t.open_test_uuid, time, timezone, speed_upload, speed_download, ping_median, lte_rsrp, signal_strength, dual_sim, sim_count, network_type, nt.group_name network_type_group_name, l.loop_uuid loop_uuid, COALESCE(adm.fullname, t.model) model FROM test t LEFT JOIN device_map adm ON adm.codename=t.model LEFT JOIN network_type nt ON t.network_type=nt.uid LEFT JOIN test_loopmode l ON (l.test_uuid = t.uuid) WHERE t.deleted = false AND t.implausible = false   AND t.status IN (?)  AND client_id = ?  AND (COALESCE(adm.fullname, t.model) IN (?))  AND nt.group_name IN (?) ORDER BY time DESC  LIMIT 1 OFFSET 2";
+    String DEFAULT_TEST_HISTORY_FINAL_QUERY_CLIENT_SYNCED = "SELECT DISTINCT t.status, t.uuid, t.open_test_uuid, time, timezone, speed_upload, speed_download, ping_median, lte_rsrp, signal_strength, dual_sim, sim_count, network_type, nt.group_name network_type_group_name, l.loop_uuid loop_uuid, COALESCE(adm.fullname, t.model) model FROM test t LEFT JOIN device_map adm ON adm.codename=t.model LEFT JOIN network_type nt ON t.network_type=nt.uid LEFT JOIN test_loopmode l ON (l.test_uuid = t.uuid) WHERE t.deleted = false AND t.implausible = false   AND t.status IN (?)  AND (t.client_id IN (SELECT ? UNION SELECT uid FROM client WHERE sync_group_id = ? ))  AND (COALESCE(adm.fullname, t.model) IN (?))  AND nt.group_name IN (?) ORDER BY time DESC  LIMIT 1 OFFSET 2";
     Integer DEFAULT_CLIENT_SYNC_GROUP_ID = 5;
     MeasurementType DEFAULT_MEASUREMENT_TYPE_FLAG = MeasurementType.REGULAR;
     String DEFAULT_SYNC_CODE = "DEFAULT_SYNC_CODE";

@@ -18,8 +18,8 @@ public class CellLocationRequest {
     private final Long timeNs;
 
     @JsonProperty(value = "area_code")
-    private final Integer areaCode;
+    private final Long areaCode;
 
     @JsonProperty(value = "location_id")
-    private final Integer locationId;
+    private final Long locationId;
 }

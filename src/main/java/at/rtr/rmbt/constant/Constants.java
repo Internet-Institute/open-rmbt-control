@@ -16,7 +16,6 @@ public interface Constants {
     String SIGNAL_STRENGTH_ALTITUDE_TEMPLATE = "%s m";
     String SIGNAL_STRENGTH_BEARING_TEMPLATE = "%s\u00B0";
     String SIGNAL_STRENGTH_SPEED_TEMPLATE = "%s km/h";
-    String SQL_QUERY_STRING_VALUE_TEMPLATE = "'%s'";
     String VERSION_TEMPLATE = "%s_%s";
     String SIGNAL_STRENGTH_DELIMITER = ", ";
     Integer MIN_SPEED = 0;
@@ -85,4 +84,6 @@ public interface Constants {
             "    AXIS[\"Easting\",EAST],\n" +
             "    AXIS[\"Northing\",NORTH],\n" +
             "    AUTHORITY[\"EPSG\",\"900913\"]]";
+
+    static final int SIGNAL_CHANGE_UUID_AFTER_MIN = 10;
 }
