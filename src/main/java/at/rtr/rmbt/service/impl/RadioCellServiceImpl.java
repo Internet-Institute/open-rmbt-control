@@ -42,7 +42,7 @@ public class RadioCellServiceImpl implements RadioCellService {
                 if (channelNumber == null) {
                     channelNumber = newRadioCell.getChannelNumber();
                 } else if (!channelNumber.equals(newRadioCell.getChannelNumber())) {
-                    channelChanged = true;
+                    // channelChanged = true; #dm fix, set first cellid no matter what
                 }
 
                 if (newRadioCell.getTechnology() != NetworkGroupName.WLAN) {
@@ -52,8 +52,8 @@ public class RadioCellServiceImpl implements RadioCellService {
                     } else {
                         if (!locationIdChanged && locationId != null && newRadioCell.getLocationId() != null &&
                                 !locationId.equals(newRadioCell.getLocationId())) {
-                            locationIdChanged = true;
-                            locationId = null;
+                            // locationIdChanged = true; #dm fix, set first cellid no matter what
+                            // locationId = null; #dm fix, set first cellid no matter what
                         }
                     }
 
@@ -61,8 +61,8 @@ public class RadioCellServiceImpl implements RadioCellService {
                         areaCode = newRadioCell.getAreaCode();
                     } else if (areaCode != null) {
                         if (!areaCode.equals(newRadioCell.getAreaCode())) {
-                            areaCodeChanged = true;
-                            areaCode = null;
+                            // areaCodeChanged = true; #dm fix, set first cellid no matter what
+                            // areaCode = null; #dm fix, set first cellid no matter what
                         }
                     }
 
@@ -74,8 +74,8 @@ public class RadioCellServiceImpl implements RadioCellService {
                             if (radioBand == null || radioBand.equals(fi.getBand())) {
                                 radioBand = fi.getBand();
                             } else {
-                                radioBand = null;
-                                radioBandChanged = true;
+                                // radioBand = null; #dm fix, set first cellid no matter what
+                                // radioBandChanged = true; #dm fix, set first cellid no matter what
                             }
                         }
                     }
