@@ -786,16 +786,16 @@ public class TestServiceImpl implements TestService {
 
     private void addTestLocationFields(List<TestResultDetailContainerResponse> propertiesList, Locale locale, TestLocation testLocation, UUID openTestUUID) {
         addGeoLocation(propertiesList, locale, testLocation, openTestUUID);
-        addInteger(propertiesList, locale, "gkz_bev", testLocation.getGkzBev());
-        addInteger(propertiesList, locale, "gkz_sa", testLocation.getGkzSa());
-        addLandCoverString(propertiesList, locale, testLocation.getLandCover());
-        addSettlementType(propertiesList, locale, testLocation.getSettlementType());
+        //addInteger(propertiesList, locale, "gkz_bev", testLocation.getGkzBev());
+        //addInteger(propertiesList, locale, "gkz_sa", testLocation.getGkzSa());
+        //addLandCoverString(propertiesList, locale, testLocation.getLandCover());
+        //addSettlementType(propertiesList, locale, testLocation.getSettlementType());
         addString(propertiesList, locale, "link_name", testLocation.getLinkName());
         addInteger(propertiesList, locale, "link_distance", testLocation.getLinkDistance());
         addLong(propertiesList, locale, "edge_id", testLocation.getEdgeId());
         addInteger(propertiesList, locale, "link_frc", testLocation.getFrc());
-        addString(propertiesList, locale, "atraster100", testLocation.getAtraster100());
-        addString(propertiesList, locale, "atraster250", testLocation.getAtraster250());
+        //addString(propertiesList, locale, "atraster100", testLocation.getAtraster100());
+        //addString(propertiesList, locale, "atraster250", testLocation.getAtraster250());
         Optional.ofNullable(testLocation.getLinknet())
                 .ifPresent(linknet -> addLinkNetFields(propertiesList, locale, linknet));
         Optional.ofNullable(testLocation.getAdministrativeBoundaries())
